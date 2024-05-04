@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ThirdJS</title>
+    </head>
+    <body>
+        <script>
+            // we back at it with javascript less gooo!
+            let a = 10
+            let b = 7 * a
+            let MAX = 57
+            let actual = MAX - 37
+            let percentage = actual/MAX
+
+            console.log(a)
+            console.log("Hello World")
+            console.log(4 + 4)
+            console.log(4 + 4 - 2 + 3 - 12 + 1)
+            console.log((4 + 6 + 9) / 77)
+            console.log(9 * a)
+            console.log(b)
+            console.log(percentage)
+
+            // strings
+            const badString = 'string';
+            console.log(badString)
+
+            // template literals
+            const name = "Chris";
+            const greeting = `Hello, ${name}`;
+            console.log(greeting); // "Hello, Chris"
+
+            const one = "Hello, ";
+            const two = "how are you?";
+            const joined = `${one}${two}`;
+            console.log(joined); 
+            // joining strings together like this is called concatenation
+
+            // escaping a character
+            const bigMouth = 'I\'ve got no right to take my place...';
+            console.log(bigMouth);
+
+            // convert to a number
+            const myString = "123";
+            const myNum = Number(myString);
+            console.log(typeof myNum);
+
+            const myNum2 = 123;
+            const myString2 = String(myNum2);
+            console.log(typeof myString2);
+
+            // testing string methods
+            let text = "abcdefghijklmnopqrstuvwxyz"
+            let length = text.length;
+            console.log(length);
+
+            // testing js switch statements
+            let aSwitch = 1;
+            let bSwitch = 2;
+            let cSwitch = 3;
+            let x = 3;
+
+            switch(x){
+                case aSwitch:
+                    console.log(aSwitch);
+                    break;
+                    case bSwitch:
+                    console.log(bSwitch);
+                    break;
+                default:
+                    console.log(cSwitch);
+            }
+
+            // switch to else if statement
+            let browser = 'Chrome';
+            if (browser === 'Edge'){
+                alert("You\'ve got the edge!");
+            } else if (browser === 'Chrome' || 'Firefox' || 'Safari' || 'Opera') {
+                alert(" okay we support these browsers too");
+                
+            } else {
+                alert('we hope that this page looks good');
+                
+            }
+        </script>
+    </body>
+</html>
