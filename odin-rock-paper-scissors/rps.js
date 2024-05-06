@@ -1,5 +1,6 @@
 console.log("Hello Friend");
 
+// spits out r,p, or s
 function getComputerChoice(){
     let r = "Rock"
     let p = "Papper"
@@ -21,4 +22,11 @@ function getComputerChoice(){
     
 
 }
+
+function getHumanChoice(){
+    let x = prompt("Please enter Rock, Paper, or Scissors", "Rock");
+
+    return x;
+}
 console.log(getComputerChoice());
+console.log(getHumanChoice());
