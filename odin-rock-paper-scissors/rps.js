@@ -62,7 +62,19 @@ function playRound(humanChoice, computerChoice){
   //playRound(humanSelection, computerSelection);
 
   // calls playRound 5x
+  for (let n = 0; n <= 5; n++) {
+    playRound();
+  }
 
+  /* while loop version
+  while (n <= 5) {
+    playRound();
+    n++;
+  }
+  */
+
+  // calling functions n stuff
+  console.log(playGame());
 
 }
 
