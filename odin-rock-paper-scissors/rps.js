@@ -2,9 +2,8 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let roundWinner;
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
+//let roundWinner;
+
 // let winConVar = winCondition();
 
 // Computers Choice = spits out r,p, or s
@@ -18,102 +17,69 @@ function getComputerChoice(){
     let x = Math.floor((Math.random() * 3) + 1);
 
     if (x == 1){
-        console.log(r);
+        return "rock";
     } else if (x == 2){
-        console.log(p);
+        return "papper";
     } else if (x == 3){
-        console.log(s);
+        return "scissors";
     } else{
         // return x;
 
     }
-    return x;
 
 }
 
 
 // Human Choice = taking human input
 function getHumanChoice(){
-    let x = prompt("Please enter Rock, Paper, or Scissors", ).toLowerCase();
+    x = prompt("Please enter Rock, Paper, or Scissors").toLowerCase();
     return x;
 }
  // logic for a round
- function playRound(humanSelection, computerSelection){
-    if (humanSelection == "rock" && computerSelection == "rock" ) {
+ function playRound(humanChoice, computerChoice){
+    if (humanChoice == "rock" && computerChoice == "rock" ) {
         return console.log("both are rock, it's a tie");
-        // increase current round
-        n++;
-        
-    } else if (humanSelection == "rock" && computerSelection == "paper" ) {
-        return console.log("paper beats rock");
-        // increase current round
-        n++;
-        // increase comp score by one
+
+    } else if (humanChoice == "rock" && computerChoice == "paper" ) {
         computerScore++;
-        console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
+        //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
+        return "paper beats rock";
 
-        
-    } else if (humanSelection == "rock" && computerSelection == "scissors" ) {
-        return console.log("rock beats scissors");
-        // increase current round
-        // increase player score by one
-        n++;
+    } else if (humanChoice == "rock" && computerChoice == "scissors" ) {
         humanScore++;
-        console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
+        //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
+        return "rock beats scissors";
 
-
-        
-    } else if (humanSelection == "paper" && computerSelection == "rock" ) {
-        return console.log("paper beats rock");
-        // increase current round
-        // increase player score by one
-        n++;
+    } else if (humanChoice == "paper" && computerChoice == "rock" ) {
         humanScore++;
-        console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-
+        //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
+        return "paper beats rock";
         
-    } else if (humanSelection == "paper" && computerSelection == "paper" ) {
-        return console.log("both are paper, it's a ti=");
-        // increase current round
-        n++;
-        console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-
+    } else if (humanChoice == "paper" && computerChoice == "paper" ) {
+        //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
+        return "both are paper, it's a tie";
         
-    } else if (humanSelection == "paper" && computerSelection == "scissors" ) {
-        return console.log("scissors beats paper");
-        // increase current round
-        // increase comp score by one
-        n++;
+    } else if (humanChoice == "paper" && computerChoice == "scissors" ) {
         computerScore++;
-        console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-
+        //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
+        return "scissors beats paper";
         
-    } else if (humanSelection == "scissors" && computerSelection == "rock" ) {
-        return console.log("rock beats scissors");
-        // increase current round
-        // increase comp score by one
-        n++;
+    } else if (humanChoice == "scissors" && computerChoice == "rock" ) {
         computerScore++;
-        console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-
+        //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
+        return "rock beats scissors";
         
-    } else if (humanSelection == "scissors" && computerSelection == "paper" ) {
-        return console.log("scissors beats paper");
-        // increase current round
-        // increase player score by one
-        n++;
+    } else if (humanChoice == "scissors" && computerChoice == "paper" ) {
         humanScore++;
-        return console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-
+        //return console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
+        return "scissors beats paper";
         
-    } else if (humanSelection == "scissors" && computerSelection == "scissors" ) {
-        return console.log("both are scissors, it's a tie");
-        console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-
-        
+    } else if (humanChoice == "scissors" && computerChoice == "scissors" ) {
+        return "both are scissors, it's a tie";
+        //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
         
     } else {
-        return console.log("didn't work");
+        return "didn't work";
     } 
 
 }
@@ -121,10 +87,11 @@ function getHumanChoice(){
 function playGame(){
     // calls playRound 5x
     for (let n = 0; n < 5; n++) {
-        const humanSelect = getComputerChoice();
-        const compSelect = getComputerChoice();
-        console.log("current round: " + n);
-        console.log(playRound(humanSelect, compSelect));
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log(playRound(humanSelection, computerSelection));
+        console.log(humanScore + " " + computerScore);
+
     }
     if (humanScore > computerScore) {
         console.log(
@@ -140,9 +107,9 @@ function playGame(){
     );
         
     }
- 
+    /*
     // logs what you chose
-    switch (humanSelection) {
+    switch (humanChoice) {
         case "rock":
             console.log("you chose rock")
             break;
@@ -156,6 +123,9 @@ function playGame(){
         default:
             break;
     }
+    */
+ 
+
 
 }
 
