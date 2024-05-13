@@ -86,6 +86,7 @@ function getHumanChoice(){
 // play game function
 function playGame(){
     // calls playRound 5x
+    /*
     for (let n = 0; n < 5; n++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
@@ -93,6 +94,7 @@ function playGame(){
         console.log(humanScore + " " + computerScore);
 
     }
+    */
     if (humanScore > computerScore) {
         console.log(
             "Final Score is:\n" + humanScore + "-" + computerScore + "\nYou win"
@@ -107,23 +109,6 @@ function playGame(){
     );
         
     }
-    /*
-    // logs what you chose
-    switch (humanChoice) {
-        case "rock":
-            console.log("you chose rock")
-            break;
-        case "paper":
-            console.log("you chose paper")
-            break;
-        case "scissors":
-            console.log("you chose scissors")
-            break;
-    
-        default:
-            break;
-    }
-    */
  
 
 
