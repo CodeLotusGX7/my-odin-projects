@@ -9,18 +9,24 @@ let scissorsButton = document.createElement("Scissors");
 
 // rock button
 document.getElementById("rockButton").addEventListener("click", function() {
-    
-    console.log("you chose rock!")    
-    playRound("rock",);
+
+    //console.log("you chose rock!")    
+    playRound("rock",getComputerChoice());
+        
+
   });
 
 // paper button
   document.getElementById("paperButton").addEventListener("click", function() {
-    myFunction();
+    //myFunction();
+    playRound("paper",getComputerChoice());
+
   });
   // scissors button
   document.getElementById("scissorsButton").addEventListener("click", function() {
-    myFunction();
+    //myFunction();
+    playRound("scissors",getComputerChoice());
+
   });
 
   ///
@@ -59,48 +65,66 @@ function getHumanChoice(){
  // logic for a round
  function playRound(humanChoice, computerChoice){
     if (humanChoice == "rock" && computerChoice == "rock" ) {
+        console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
         return console.log("both are rock, it's a tie");
+        
 
     } else if (humanChoice == "rock" && computerChoice == "paper" ) {
         computerScore++;
+        console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
+
         //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-        return "paper beats rock";
+        return console.log("paper beats rock");
 
     } else if (humanChoice == "rock" && computerChoice == "scissors" ) {
         humanScore++;
+        console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
+
         //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-        return "rock beats scissors";
+        return console.log("rock beats scissors");
 
     } else if (humanChoice == "paper" && computerChoice == "rock" ) {
         humanScore++;
+        console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
+
         //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-        return "paper beats rock";
+        return console.log("paper beats rock");
         
     } else if (humanChoice == "paper" && computerChoice == "paper" ) {
+        console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
+
         //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-        return "both are paper, it's a tie";
+        return console.log("both are paper, it's a tie");
         
     } else if (humanChoice == "paper" && computerChoice == "scissors" ) {
         computerScore++;
+        console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
+
         //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-        return "scissors beats paper";
+        return console.log("scissors beats paper");
         
     } else if (humanChoice == "scissors" && computerChoice == "rock" ) {
         computerScore++;
+        console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
+
         //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-        return "rock beats scissors";
+        return console.log("rock beats scissors");
         
     } else if (humanChoice == "scissors" && computerChoice == "paper" ) {
         humanScore++;
+        console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
+
         //return console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
-        return "scissors beats paper";
+        return console.log("scissors beats paper");
         
     } else if (humanChoice == "scissors" && computerChoice == "scissors" ) {
-        return "both are scissors, it's a tie";
+        console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
+
+        return console.log("both are scissors, it's a tie");
         //console.log("the current score is: " +  "human: " + humanScore + "Computer: " + computerScore);
         
     } else {
-        return "didn't work";
+        return console.log("didn't work");
     } 
 
 }
