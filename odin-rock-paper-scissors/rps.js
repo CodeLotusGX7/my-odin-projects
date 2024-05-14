@@ -2,10 +2,31 @@
 let humanScore = 0;
 let computerScore = 0;
 
-//let roundWinner;
+// creating buttons
+let rockButton = document.getElementById("rockButton");
+let paperButton = document.createElement("Paper");
+let scissorsButton = document.createElement("Scissors");
 
-// let winConVar = winCondition();
+// rock button
+document.getElementById("rockButton").addEventListener("click", function() {
+    
+    console.log("you chose rock!")    
+    playRound("rock",);
+  });
 
+// paper button
+  document.getElementById("paperButton").addEventListener("click", function() {
+    myFunction();
+  });
+  // scissors button
+  document.getElementById("scissorsButton").addEventListener("click", function() {
+    myFunction();
+  });
+
+  ///
+  function myFunction() {
+    console.log("this button was clicked"); 
+  }
 // Computers Choice = spits out r,p, or s
 function getComputerChoice(){
     let r = "rock"
