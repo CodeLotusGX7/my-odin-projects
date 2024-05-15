@@ -3,11 +3,9 @@
 let computerScore = 0;
 let currentRound = 0;
 let playerScore = 0;
+let currentCompChoice = getComputerChoice();
 
-// creating buttons
-let rockButton = document.getElementById("rockButton");
-let paperButton = document.createElement("Paper");
-let scissorsButton = document.createElement("Scissors");
+
 
 // testing output
 //document.getElementById("humanSelection").innerHTML = 'human selection = ';
@@ -24,10 +22,8 @@ function printStatus(currentStatus) {
 }
 // prints selection
 function printSelection(humanSelect, compSelect) {
-    let newSelect = document.getElementById("selection").innerHTML = 'H Choice: ' + humanSelect + ' C Choice: ' + compSelect;
+    let newSelect = document.getElementById("selection").innerHTML = 'Player: ' + humanSelect + ' Computer: ' + compSelect;
     return newSelect;
-
-    
 }
 // prints current round
 function printRound(currentRound) {
@@ -37,7 +33,7 @@ function printRound(currentRound) {
     
 }
 // print current score
-function printScore(hScore, cScore) {
+function printScore(hScore, computerScore) {
     let newScore = document.getElementById("currentScore").innerHTML = 'Score: ' + 'player: ' + playerScore + ' computer: ' + computerScore;
     return newScore;
 
@@ -73,75 +69,90 @@ function getHumanChoice(){
  // logic for a round
  function playRound(humanChoice, computerChoice){
     if (humanChoice == "rock" && computerChoice == "rock" ) {
-        printStatus("both are rock, it's a tie");
         printScore(playerScore, computerScore);
+        printStatus("both are rock, it's a tie");
+        printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
-        console.log("score");
         return ;
 
     } else if (humanChoice == "rock" && computerChoice == "paper" ) {
         computerScore++;
         printScore(playerScore, computerScore);
+        printStatus("paper beats rock");
+        printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
-        return console.log("paper beats rock");
+        return ;
 
     } else if (humanChoice == "rock" && computerChoice == "scissors" ) {
         playerScore++;
         printScore(playerScore, computerScore);
+        printStatus("rock beats scissors");
+        printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
-        return console.log("rock beats scissors");
+        return ;
 
     } else if (humanChoice == "paper" && computerChoice == "rock" ) {
         playerScore++;
         printScore(playerScore, computerScore);
+        printStatus("paper beats rock");
+        printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
-        return console.log("paper beats rock");
+        return ;
         
     } else if (humanChoice == "paper" && computerChoice == "paper" ) {
         printScore(playerScore, computerScore);
+        printStatus("both are paper, it's a tie");
+        printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
-        return console.log("both are paper, it's a tie");
+        return ;
         
     } else if (humanChoice == "paper" && computerChoice == "scissors" ) {
         computerScore++;
         printScore(playerScore, computerScore);
+        printStatus("scissors beats paper");
+        printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
-        return console.log("scissors beats paper");
+        return ;
         
     } else if (humanChoice == "scissors" && computerChoice == "rock" ) {
         computerScore++;
         printScore(playerScore, computerScore);
+        printStatus("rock beats scissors");
+        printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
-        return console.log("rock beats scissors");
+        return ;
         
     } else if (humanChoice == "scissors" && computerChoice == "paper" ) {
         playerScore++;
         printScore(playerScore, computerScore);
+        printStatus("scissors beats paper");
+        printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
-        return console.log("scissors beats paper");
+        return ;
         
     } else if (humanChoice == "scissors" && computerChoice == "scissors" ) {
         printScore(playerScore, computerScore);
+        printStatus("both are scissors, it's a tie");
+        printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
-        return console.log("both are scissors, it's a tie");        
+        return ;        
     } else {
+        printStatus("oops! something went wrong!");
+        printSelection(humanChoice, computerChoice);
         return console.log("something went wrong");
     }
-    
+
 
 }
 // play game function
-function playGame(){
+function playGame(playerScore, computerScore){
 
     if (playerScore > computerScore && playerScore == 5) {
-        console.log("you win!");
-        
+       return console.log("you win!");
     } else if (playerScore < computerScore && computerScore == 5) {
-        console.log("you win!");
-        
+        return console.log("you loose!");
     } else {
-        console.log("still goin huh");
-
+        return console.log("still goin huh");
     }
 
 }
@@ -151,6 +162,7 @@ function playGame(){
 // rock button
 document.getElementById("rockButton").addEventListener("click", function() {
     playRound("rock",getComputerChoice());
+    playGame(playerScore, computerScore);
     currentRound++;
     printRound(currentRound);
     //printStatus("you chose rock! update status");
@@ -158,6 +170,7 @@ document.getElementById("rockButton").addEventListener("click", function() {
 // paper button
 document.getElementById("paperButton").addEventListener("click", function() {
     playRound("paper",getComputerChoice());
+    playGame(playerScore, computerScore);
     currentRound++;
     printRound(currentRound);
     //printStatus("you chose paper! update status");
@@ -165,6 +178,7 @@ document.getElementById("paperButton").addEventListener("click", function() {
   // scissors button
   document.getElementById("scissorsButton").addEventListener("click", function() {
     playRound("scissors",getComputerChoice());
+    playGame(playerScore, computerScore);
     currentRound++;
     printRound(currentRound);
     //printStatus("you chose scissors! update status");
