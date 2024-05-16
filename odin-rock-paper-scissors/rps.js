@@ -68,14 +68,14 @@ function getHumanChoice(){
 }
  // logic for a round
  function playRound(humanChoice, computerChoice){
-    if (humanChoice == "rock" && computerChoice == "rock" ) {
+    if (humanChoice === "rock" && computerChoice === "rock" ) {
         printScore(playerScore, computerScore);
         printStatus("both are rock, it's a tie");
         printSelection(humanChoice, computerChoice);
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
         return ;
 
-    } else if (humanChoice == "rock" && computerChoice == "paper" ) {
+    } else if (humanChoice === "rock" && computerChoice === "paper" ) {
         computerScore++;
         printScore(playerScore, computerScore);
         printStatus("paper beats rock");
@@ -83,7 +83,7 @@ function getHumanChoice(){
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
         return ;
 
-    } else if (humanChoice == "rock" && computerChoice == "scissors" ) {
+    } else if (humanChoice === "rock" && computerChoice == "scissors" ) {
         playerScore++;
         printScore(playerScore, computerScore);
         printStatus("rock beats scissors");
@@ -91,7 +91,7 @@ function getHumanChoice(){
         console.log("your choice: " + humanChoice + " computer choice: " + computerChoice);
         return ;
 
-    } else if (humanChoice == "paper" && computerChoice == "rock" ) {
+    } else if (humanChoice === "paper" && computerChoice === "rock" ) {
         playerScore++;
         printScore(playerScore, computerScore);
         printStatus("paper beats rock");
@@ -139,7 +139,8 @@ function getHumanChoice(){
     } else {
         printStatus("oops! something went wrong!");
         printSelection(humanChoice, computerChoice);
-        return console.log("something went wrong");
+        console.log("error in playround");
+        return ;
     }
 
 
@@ -148,11 +149,17 @@ function getHumanChoice(){
 function playGame(playerScore, computerScore){
 
     if (playerScore > computerScore && playerScore == 5) {
-       return console.log("you win!");
+       console.log("you win!");
+       printStatus("you win!");
+       return ;
     } else if (playerScore < computerScore && computerScore == 5) {
-        return console.log("you loose!");
+        console.log("you loose!");
+        printStatus("you win!");
+        return ;
+
+
     } else {
-        return console.log("still goin huh");
+        return ;
     }
 
 }
