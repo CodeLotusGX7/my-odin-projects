@@ -12,16 +12,19 @@ theHobbit.info(); // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
 console.log("hello world");
 
 function MyBook(title, author, pages, status){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.status = status,
     this.bookInfo = function(){
-        return this.title + " by: " + this.author;
+        //return this.title + " by: " + this.author;
+        return this ;
     }
 }
 
 const fallOfReach = new MyBook("Fall of Reach","Eric Nylund", "416", "Finished");
-console.log(fallOfReach);
+const vForVincent = new MyBook("V for Vincent", 'Lotus Vincent', '412', 'Unread');
+// console.log(fallOfReach);
 console.log(fallOfReach.bookInfo());
+console.log(vForVincent.bookInfo());
 
