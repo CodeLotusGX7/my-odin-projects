@@ -1,0 +1,12 @@
+<!-- navbar.ejs -->
+<nav>
+    <ul>
+        <% for (let i = 0; i < link.length; i++){ %>
+            <li>
+                <a href="<%= links[i].href %>">
+                    <span> <%= link[i].text %> </span>
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</nav>
