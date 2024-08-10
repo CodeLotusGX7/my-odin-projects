@@ -2,6 +2,21 @@ const express = require("express");
 const app = express();
 const path = require("node:path"); // view engine
 
+// message array
+const messages = [
+    {
+        text: "Hi there!",
+        user: "Charles",
+        added: new Date()
+    },
+    {
+        text: "Hello World!",
+        user: "Charles",
+        added: new Date()
+    }
+];
+
+
 //app.get("/", (req, res) => res.send("Hello, friend"));
 
 const PORT = 3000;
