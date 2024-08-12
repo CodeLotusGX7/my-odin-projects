@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> <%= title %>  </title>
 </head>
 <body>
-    <%= message %>
-    
+    <% messages.forEach((message) => { %>
+        <div class="wrapper">
+            <h1>Name: <%= message.user %> </h1>
+            <p>Message: <%= message.text %> </p>
+            <p>Date: <%= message.added %> </p>
+            <a href="/<%= message.user %>">Open in new page</a>
+        </div>
+    <% }) %>
+    <br>
+    <p>yee <a href="/new">add new message</a></p>
 </body>
 </html>

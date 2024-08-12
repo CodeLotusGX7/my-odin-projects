@@ -1,31 +1,29 @@
+//require('dotenv').config();
+
 const express = require("express");
 const app = express();
 const path = require("node:path"); // view engine
-
-// message array
-const messages = [
-    {
-        text: "Hi there!",
-        user: "Charles",
-        added: new Date()
-    },
-    {
-        text: "Hello World!",
-        user: "Charles",
-        added: new Date()
-    }
-];
-
-
-//app.get("/", (req, res) => res.send("Hello, friend"));
+const indexRouter = require("./routes/indexRouter");
 
 const PORT = 3000;
-app.listen(PORT, () => console.log(`listening on port ${PORT}`));
+// USE ------------------------------------------->
 
-// ejs
+// used to parse form data
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+// using view router
+app.use("/", indexRouter);
+
+
+// SET ------------------------------------------->
+
+// view engine
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-    res.render("index", {message: "EJS rocks!"});
-});
+
+// listening ------------------------------------------->
+
+// keep at the bottom!!
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
